@@ -1,0 +1,23 @@
+<ul>
+  <li><a [routerLink]="['/']">Home</a></li>
+  <li><a [routerLink]="['/bitcoin']">Bitcoin Rate</a></li>
+</ul>
+
+<table border="2">
+  <tr>
+    <th>Data/hora</th>
+    <th>USD</th>
+    <th>BRL</th>
+  </tr>
+  <tr *ngFor="let rate of this.bitCoinServ.bitCoinRates">
+    <td>{{ rate.time.updated }}</td>
+    <td>
+      <span [innerHTML]="rate.bpi.USD.symbol"></span>
+      {{ rate.bpi.USD.rate_float }}
+    </td>
+    <td>
+      <span [innerHTML]="rate.bpi.BRL.symbol"></span>
+      {{ rate.bpi.BRL.rate_float }}
+    </td>
+  </tr>
+</table>
